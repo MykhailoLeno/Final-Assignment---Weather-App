@@ -1,0 +1,18 @@
+<div class="weather-container" *ngIf="data && data.coord">
+    <div class="weather-card">
+        <h2>{{ data.city }}</h2>
+        <p class="temperature">{{ data.temperature }}°C</p>
+        <p class="description">{{ data.description }}</p>
+
+        <div class="weather-details">
+            <div class="detail-item">
+                <img src="assets/icons/wind.svg" alt="Wind">
+                <p>Wind: {{ data.wind }} m/s</p>
+            </div>
+            <div class="detail-item">
+                <img src="assets/icons/coordinates.svg" alt="Coordinates">
+                <p>Lat: {{ data.coord.lat }}, Lon: {{ data.coord.lon }}</p>
+            </div>
+        </div>
+    </div>
+</div>

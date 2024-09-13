@@ -1,0 +1,5 @@
+<app-header-page></app-header-page>
+<div class="main-container">
+    <app-input-coordinate (weatherDataChanged)="updateWeatherDate($event)"></app-input-coordinate>
+    <app-display-weather [data]="weatherData"></app-display-weather>
+</div>

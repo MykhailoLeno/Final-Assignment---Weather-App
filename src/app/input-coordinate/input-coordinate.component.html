@@ -1,0 +1,30 @@
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="enter">
+        <h2>Enter latitude and longitude coordinates</h2>
+    </div>
+
+    <div class="coordinate-input">
+        <input type="number" id="latitude" formControlName="latitude" placeholder="Enter latitude">
+        <div class="validation">
+            <small *ngIf="form.get('latitude')?.touched && form.get('latitude')?.invalid">
+                <span *ngIf="form.get('latitude')?.errors?.['required']">Enter latitude</span>
+                <span *ngIf="form.get('latitude')?.errors?.['min'] || form.get('latitude')?.errors?.['max']">Latitude
+                    must be between -90 and 90</span>
+            </small>
+        </div>
+
+        <input type="number" id="longitude" formControlName="longitude" placeholder="Enter longitude">
+        <div class="validation">
+            <small *ngIf="form.get('longitude')?.touched && form.get('longitude')?.invalid">
+                <span *ngIf="form.get('longitude')?.errors?.['required']">Enter longitude</span>
+                <span *ngIf="form.get('longitude')?.errors?.['min'] || form.get('longitude')?.errors?.['max']">Longitude
+                    must be between -180 and 180</span>
+            </small>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid || submitted">Get
+            weather</button>
+    </div>
+    <div class="coordinate-input" *ngIf="coGiven">
+        <p class="given">{{coGiven}}</p>
+    </div>
+</form>
